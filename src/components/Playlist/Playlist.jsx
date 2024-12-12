@@ -1,14 +1,20 @@
 import React from "react";
+import Track from "../Track/Track";
 import styles from "./Playlist.module.css";
 
-function Playlist() {
+function Playlist(props) {
   return (
     <div className={styles.playlist}>
-      <h2>Playlist</h2>
+      <input
+        type="text"
+        onChange={props.onChange}
+        placeholder="Enter playlist name..."
+        value={props.name}
+      ></input>
       <ul>
-        <li>Track 4</li>
-        <li>Track 5</li>
-        <li>Track 6</li>
+        {props.playlist.map((track) => (
+          <Track key={track.id} track={track} symbol="-" />
+        ))}
       </ul>
     </div>
   );
