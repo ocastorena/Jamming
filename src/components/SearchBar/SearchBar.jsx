@@ -3,10 +3,16 @@ import styles from "./SearchBar.module.css";
 
 function SearchBar() {
   return (
-    <div className={styles.searchBar}>
-      <input type="text" placeholder="Search..." />
-      <button>Search</button>
-    </div>
+    <form className={styles.searchBar} onSubmit={(e) => e.defaultPrevented}>
+      <input
+        type="text"
+        placeholder="Search for an artist..."
+        className={styles.searchInput}
+      />
+      <button type="submit" className={styles.searchButton}>
+        Search
+      </button>
+    </form>
   );
 }
 
