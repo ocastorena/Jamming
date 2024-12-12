@@ -10,30 +10,30 @@
 }
 
 .track h4 {
-    margin: 0;
-    padding: 10px;
+  margin: 0;
+  padding: 10px;
 }
 
 .track p {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-.addButton {
-    position: absolute;
-    top: 30%; /* Adjust as needed */
-    right: 2%; /* Adjust as needed */
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    border-radius: 10%;
-    font-size: 24px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .addButton:hover {
-    background-color: #535bf2;
-  }
+.addRemoveButton {
+  position: absolute;
+  top: 30%; /* Adjust as needed */
+  right: 2%; /* Adjust as needed */
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 10%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addRemoveButton:hover {
+  background-color: #535bf2;
+}
