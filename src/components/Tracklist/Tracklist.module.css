@@ -1,5 +1,18 @@
 .tracklist {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-area: tracklist;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 8%;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #d5340c, #252f77);
+}
+
+.tracklist ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }

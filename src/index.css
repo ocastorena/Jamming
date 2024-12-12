@@ -23,10 +23,22 @@ a:hover {
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
 
+#root {
   display: grid;
-  min-width: 320px;
-  min-height: 100vh;
+  grid-template-areas:
+    "searchbar searchbar"
+    "tracklist playlist"
+    "footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1700px;
+  min-width: 850px;
+  width: 100%;
 }
 
 @media (prefers-color-scheme: light) {
