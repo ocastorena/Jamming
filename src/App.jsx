@@ -29,8 +29,7 @@ const mockTracks = [
 function App() {
   const [tracklist, setTracklist] = useState(mockTracks);
 
-  const handleAddTrack = (event) => {
-    const trackId = parseInt(event.target.getAttribute("trackId"));
+  const handleAddTrack = (trackId) => {
     const trackToAdd = tracklist.find((track) => track.id === trackId);
     if (!playlist.find((track) => track.id === trackId)) {
       setPlaylist([...playlist, trackToAdd]);
@@ -40,14 +39,26 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
 
   const handleRemoveTrack = (trackId) => {
-    setPlaylist(playlist.filter((track) => track.id !== trackId));
+    const trackToRemove = playlist.find((track) => track.id === trackId);
+    setPlaylist(playlist.filter((track) => track.id !== trackToRemove.id));
+  };
+
+  const [playlistName, setPlaylistName] = useState("");
+
+  const handlePlaylistNameChange = (event) => {
+    setPlaylistName(event.target.value);
   };
 
   return (
     <>
       <SearchBarContainer />
-      <Tracklist tracklist={tracklist} onClick={handleAddTrack} />
-      <Playlist playlist={playlist} onClick={handleRemoveTrack} />
+      <Tracklist tracklist={tracklist} onAddTrack={handleAddTrack} />
+      <Playlist
+        playlist={playlist}
+        onRemoveTrack={handleRemoveTrack}
+        onNameChange={handlePlaylistNameChange}
+        playlistName={playlistName}
+      />
     </>
   );
 }
