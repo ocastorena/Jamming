@@ -1,18 +1,18 @@
 import React from "react";
 import styles from "./Track.module.css";
 
-function Track(props) {
+function Track({ track, symbol, onClick }) {
+  const handleClick = () => {
+    onClick(track.id);
+  };
+
   return (
     <li className={styles.track}>
-      <h3>{props.track.name}</h3>
-      <h4>{props.track.artist}</h4>
-      <p>{props.track.album}</p>
-      <button
-        className={styles.addRemoveButton}
-        trackid={props.track.id}
-        onClick={props.handleClick}
-      >
-        {props.symbol}
+      <h3>{track.name}</h3>
+      <h4>{track.artist}</h4>
+      <p>{track.album}</p>
+      <button className={styles.addRemoveButton} onClick={handleClick}>
+        {symbol}
       </button>
     </li>
   );

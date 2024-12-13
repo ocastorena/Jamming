@@ -2,18 +2,23 @@ import React from "react";
 import Track from "../Track/Track";
 import styles from "./Playlist.module.css";
 
-function Playlist(props) {
+function Playlist({ playlist, onRemoveTrack, onNameChange, playlistName }) {
   return (
     <div className={styles.playlist}>
       <input
         type="text"
-        onChange={props.onChange}
+        onChange={onNameChange}
         placeholder="Enter playlist name..."
-        value={props.name}
+        value={playlistName}
       ></input>
       <ul>
-        {props.playlist.map((track) => (
-          <Track key={track.id} track={track} symbol="-" />
+        {playlist.map((track) => (
+          <Track
+            key={track.id}
+            track={track}
+            symbol="-"
+            onClick={onRemoveTrack}
+          />
         ))}
       </ul>
     </div>
