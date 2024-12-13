@@ -30,6 +30,14 @@ function PlaylistContainer() {
   const handleRemoveTrack = (trackId) => {
     setPlaylist(playlist.filter((track) => track.id !== trackId));
   };
+
+  const handleAddTrack = (trackId) => {
+    if (!playlist.find((track) => track.id === trackId)) {
+      const track = mockTracks.find((track) => track.id === trackId);
+      setPlaylist([...playlist, track]);
+    }
+  }
+
   const [playlistName, setPlaylistName] = React.useState("");
 
   const handleUpdateName = (event) => {

@@ -8,7 +8,12 @@ function Tracklist(props) {
       <h2>Search Results</h2>
       <ul>
         {props.tracklist.map((track) => (
-          <Track key={track.id} track={track} symbol="+"/>
+          <Track
+            key={track.id}
+            track={track}
+            symbol="+"
+            handleClick={props.onClick}
+          />
         ))}
       </ul>
     </div>
