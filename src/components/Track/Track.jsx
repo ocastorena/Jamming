@@ -7,7 +7,13 @@ function Track(props) {
       <h3>{props.track.name}</h3>
       <h4>{props.track.artist}</h4>
       <p>{props.track.album}</p>
-      <button className={styles.addRemoveButton}>{props.symbol}</button>
+      <button
+        className={styles.addRemoveButton}
+        trackid={props.track.id}
+        onClick={props.handleClick}
+      >
+        {props.symbol}
+      </button>
     </li>
   );
 }
