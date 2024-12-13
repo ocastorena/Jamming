@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchBarContainer from "./containers/SearchBarContainer";
-import Playlist from "./components/Playlist/Playlist";
-import Tracklist from "./components/Tracklist/Tracklist";
+import PlaylistContainer from "./containers/PlaylistContainer";
+import TracklistContainer from "./containers/TracklistContainer";
 
 const mockTracks = [
   {
@@ -9,55 +9,56 @@ const mockTracks = [
     name: "Blinding Lights",
     artist: "The Weeknd",
     album: "After Hours",
+    uri: "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
   },
   {
     id: 2,
     name: "Watermelon Sugar",
     artist: "Harry Styles",
     album: "Fine Line",
+    uri: "spotify:track:6UelLqGlWMcVH1E5c4H7lY",
   },
-  { id: 3, name: "Levitating", artist: "Dua Lipa", album: "Future Nostalgia" },
+  {
+    id: 3,
+    name: "Levitating",
+    artist: "Dua Lipa",
+    album: "Future Nostalgia",
+    uri: "spotify:track:463CkQjx2Zk1yXoBuierM9",
+  },
   {
     id: 4,
     name: "Save Your Tears",
     artist: "The Weeknd",
     album: "After Hours",
+    uri: "spotify:track:5QO79kh1waicV47BqGRL3g",
   },
-  { id: 5, name: "Peaches", artist: "Justin Bieber", album: "Justice" },
+  {
+    id: 5,
+    name: "Peaches",
+    artist: "Justin Bieber",
+    album: "Justice",
+    uri: "spotify:track:4iJyoBOLtHqaGxP12qzhQI",
+  },
 ];
 
 function App() {
   const [tracklist, setTracklist] = useState(mockTracks);
-
-  const handleAddTrack = (trackId) => {
-    const trackToAdd = tracklist.find((track) => track.id === trackId);
-    if (!playlist.find((track) => track.id === trackId)) {
-      setPlaylist([...playlist, trackToAdd]);
-    }
-  };
-
   const [playlist, setPlaylist] = useState([]);
-
-  const handleRemoveTrack = (trackId) => {
-    const trackToRemove = playlist.find((track) => track.id === trackId);
-    setPlaylist(playlist.filter((track) => track.id !== trackToRemove.id));
-  };
-
   const [playlistName, setPlaylistName] = useState("");
-
-  const handlePlaylistNameChange = (event) => {
-    setPlaylistName(event.target.value);
-  };
 
   return (
     <>
       <SearchBarContainer />
-      <Tracklist tracklist={tracklist} onAddTrack={handleAddTrack} />
-      <Playlist
+      <TracklistContainer
+        tracklist={tracklist}
         playlist={playlist}
-        onRemoveTrack={handleRemoveTrack}
-        onNameChange={handlePlaylistNameChange}
+        setPlaylist={setPlaylist}
+      />
+      <PlaylistContainer
+        playlist={playlist}
+        setPlaylist={setPlaylist}
         playlistName={playlistName}
+        setPlaylistName={setPlaylistName}
       />
     </>
   );
