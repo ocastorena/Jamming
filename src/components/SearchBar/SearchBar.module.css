@@ -9,7 +9,7 @@
   padding: 10px;
   background: linear-gradient(135deg, #252f77, #d5340c);
   border-radius: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .searchInput {
