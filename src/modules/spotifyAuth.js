@@ -51,11 +51,12 @@ export function getAccessToken() {
     return access_token;
   } else {
     console.log("Need to authenticate with Spotify");
+    redirectToSpotifyAuth();
     return null;
   }
 }
 
-export function makeAuthenticatedRequest(url, options = {}) {
+export async function makeAuthenticatedRequest(url, options = {}) {
   const access_token = localStorage.getItem("spotify_access_token");
   if (!access_token) {
     console.log("No access token available");
@@ -68,8 +69,10 @@ export function makeAuthenticatedRequest(url, options = {}) {
     ...options.headers,
   };
 
-  return fetch(url, {
+  const response = await fetch(url, {
     ...options,
     headers,
-  }).then((response) => response.json());
+  });
+
+  return response.json();
 }

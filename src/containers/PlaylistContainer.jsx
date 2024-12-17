@@ -32,38 +32,6 @@ function PlaylistContainer({
     console.log("Saving playlist to Spotify...");
     const trackURIs = playlist.map((track) => track.uri);
     console.log(trackURIs);
-
-    // try {
-    //   const createPlaylistResponse = await makeAuthenticatedRequest(
-    //     "https://api.spotify.com/v1/me/playlists",
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify({
-    //         name: playlistName,
-    //         description: "New playlist description",
-    //         public: false,
-    //       }),
-    //     }
-    //   );
-
-    //   const playlistId = createPlaylistResponse.id;
-
-    //   await makeAuthenticatedRequest(
-    //     `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify({
-    //         uris: trackURIs,
-    //       }),
-    //     }
-    //   );
-
-    //   console.log("Playlist saved to Spotify!");
-    //   setPlaylist([]);
-    //   setPlaylistName("");
-    // } catch (error) {
-    //   console.error("Error saving playlist to Spotify:", error);
-    // }
   };
 
   useEffect(() => {
