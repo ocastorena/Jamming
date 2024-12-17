@@ -4,9 +4,10 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
   padding-bottom: 20px;
-  margin: 5px;
+  margin: 10px;
   border-radius: 10px;
   position: relative;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .track h4 {
@@ -21,8 +22,8 @@
 
 .addRemoveButton {
   position: absolute;
-  top: 30%; /* Adjust as needed */
-  right: 2%; /* Adjust as needed */
+  top: 30%;
+  right: 2%;
   margin: 5px;
   padding: 10px;
   border: none;
