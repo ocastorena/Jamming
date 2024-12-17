@@ -8,9 +8,12 @@ function Track({ track, symbol, onClick }) {
 
   return (
     <li className={styles.track}>
-      <h3>{track.name}</h3>
-      <h4>{track.artist}</h4>
-      <p>{track.album}</p>
+      <img src={track.albumImage} alt={track.album} />
+      <div className={styles.trackInfo}>
+        <h3>{track.title}</h3>
+        <h4>{track.artist}</h4>
+        <p>{track.album}</p>
+      </div>
       <button className={styles.addRemoveButton} onClick={handleClick}>
         {symbol}
       </button>

@@ -1,13 +1,15 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
 
-function SearchBar() {
+function SearchBar({ search, setSearch, handleSubmit }) {
   return (
-    <form className={styles.searchBar} onSubmit={(e) => e.defaultPrevented}>
+    <form className={styles.searchBar} onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Search for an artist..."
+        placeholder="Search for a track..."
+        value={search}
         className={styles.searchInput}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <button type="submit" className={styles.searchButton}>
         Search
