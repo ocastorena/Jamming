@@ -1,7 +1,8 @@
 const stateKey = "spotify_auth_state";
-const client_id = "3fce480a81aa4d239b334c29d7682ca2"; // Your client id
-const redirect_uri = "http://localhost:5173"; // Your redirect uri
-const scope = "user-read-private user-read-email";
+const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const redirect_uri = import.meta.env.VITE_SPOTIFY_REDIRECT_URI;
+const scope =
+  "user-read-private playlist-modify-public playlist-modify-private";
 
 function generateRandomString(length) {
   let text = "";
@@ -73,6 +74,11 @@ export async function makeAuthenticatedRequest(url, options = {}) {
     ...options,
     headers,
   });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error.message || "Request failed");
+  }
 
   return response.json();
 }

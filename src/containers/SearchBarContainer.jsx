@@ -7,6 +7,10 @@ function SearchBarContainer({ setTracklist }) {
 
   const handleSearchForArtist = async (e) => {
     e.preventDefault();
+    if (search === "") {
+      return;
+    }
+
     console.log(`Searching for ${search}...`);
 
     const searchUrl = `https://api.spotify.com/v1/search?q=${search}&type=track`;
